@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Онлайн-курсы звукорежиссуры</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+  }
+  .header-container {
+    max-width: 1200px; 
+    margin: 0 auto; 
+    position: relative; 
+  }
+  .logo {
+    position: absolute; 
+    top: -15px; 
+    left: -70px; 
+    width: 180px; 
+  }
+  /* Сделать заголовок жирным и белым */
+  header h1.header-title {
+    color: white;
+    font-weight: bold;
+    margin: 0;
+  }
+  /* Сделать ссылки навигации жирными и черными */
+  nav a {
+    margin: 0 10px; 
+    text-decoration: none;
+    color: black; /* черный цвет */
+    font-weight: bold; /* жирный */
+  }
+  /* при наведении оставить черным или добавить эффект */
+  nav a:hover {
+    text-decoration: underline;
+  }
+
+  .container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 60px;
+  }
+  .side-bar {
+    background-color: #4CAF50; 
+    width: 20%; 
+    height: calc(100vh - 60px); 
+    position: fixed; 
+    top: 90px; 
+    left: 20px; 
+    padding: 20px; 
+    box-sizing: border-box; 
+  }
+  .side-bar img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+  }
+  .main-content {
+    flex-grow: 1;
+    padding: 20px;
+    margin-left: 250px; /* отступ под фиксированную панель */
+  }
+  /* Общие стили для панелей */
+  .panels-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* отступ между панелями */
+    width: 100%;
+  }
+  .collapsible-panel {
+    background-color: rgba(128, 128, 128, 0.5);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    overflow: hidden;
+    transition: max-height 0.5s ease, padding 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  /* Начальные состояния: свернуты */
+  .panel-collapsed {
+    max-height: 40px;
+    padding: 0;
+  }
+  /* Раскрытая панель */
+  .panel-expanded {
+    max-height: 1500px;
+    padding: 15px;
+  }
+  /* Заголовки панелей */
+  .panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    background: rgba(200,200,200,0.3);
+    padding: 8px 12px;
+    font-weight: bold;
+  }
+  .arrow {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+  }
+  /* Поворот стрелки при открытии */
+  .arrow.open {
+    transform: rotate(180deg);
+  }
+  /* Контент внутри панели */
+  .panel-content {
+    overflow-y: auto;
+  }
+  /* Видео */
+  .video-item {
+    margin-bottom: 10px;
+  }
+  video {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
+  /* Остальные стили */
+  .audio-tracks {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .audio-track {
+    border: 1px solid #ccc;
+    padding: 8px;
+    border-radius: 4px;
+    background-color: #fff;
+  }
+  .small-img {
+    max-width: 400px;
+    height: auto;
+    display: block;
+    margin: 10px 0;
+    border-radius: 4px;
+  }
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #318e34;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    z-index: 1000; 
+  }
+  /* Центрируем и стилизуем навигацию */
+  nav {
+    margin: 10px 0; 
+  }
+  /* Сделать ссылки жирными и черными */
+  nav a {
+    margin: 0 10px; 
+    text-decoration: none;
+    color: black; /* черный */
+    font-weight: bold; /* жирный */
+  }
+  nav a:hover {
+    text-decoration: underline;
+  }
+  h1 {
+    margin: 0;
+  }
+  footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #4CAF50; 
+    color: white;
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-container">
+    <img src="Логотип.png" alt="Логотип" class="logo" />
+    <!-- Сделать название жирным и белым -->
+    <h1 class="header-title">Онлайн-курсы звукорежиссуры</h1>
+    <nav>
+      <a href="#register">Выбрать курс</a>
+      <a href="#about">О нас</a>
+      <a href="#contacts">Контакты</a>
+      <a href="#feedback">Отзывы и предложения</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <div class="side-bar">
+    <img src="Колонка1.png" alt="Описание изображения" />
+  </div>
+
+  <div class="main-content">
+    <section id="register">
+      <h2>Концертная звукорежиссура</h2>
+      <p>Получите доступ к уникальным методикам звукорежиссуры и практическим занятиям.</p>
+      <img class="small-img" src="1 курс.jpeg" alt="Описание изображения" />
+    </section>
+
+    <section id="about">
+      <h2>Студийная звукорежиссура</h2>
+      <p>Мы команда профессионалов, готовых поделиться своим опытом и знаниями.</p>
+      <img class="small-img" src="2 курс.jpeg" alt="Описание изображения" />
+    </section>
+
+    <!-- Контейнер для панелей -->
+    <div class="panels-container" style="margin-top: 20px;">
+      <!-- Видео -->
+      <div class="collapsible-panel panel-collapsed" id="videoPanel">
+        <div class="panel-header" id="videoHeader">
+          <span>Видеофрагменты</span>
+          <div class="arrow" id="videoArrow">▼</div>
+        </div>
+        <div class="panel-content" id="videoContent"></div>
+      </div>
+      <!-- Лекции -->
+      <div class="collapsible-panel panel-collapsed" id="audioPanel">
+        <div class="panel-header" id="audioHeader">
+          <span>Фрагменты лекций</span>
+          <div class="arrow" id="audioArrow">▼</div>
+        </div>
+        <div class="audio-tracks"></div>
+      </div>
+    </div>
+
+    <footer>
+      <p>© 2024 г. Онлайн-курсы звукорежиссуры</p>
+    </footer>
+  </div>
+</div>
+
+<script>
+  // Данные лекций
+  const lectures = [
+    { title: 'Лекция 1 - Введение', src: 'audio1.mp3' },
+    { title: 'Лекция 2 - Техника записи', src: 'audio2.mp3' },
+    { title: 'Лекция 3 - Обработка звука', src: 'audio3.mp3' },
+    { title: 'Лекция 4 - Техника сведения', src: 'audio4.mp3' },
+  ];
+
+  // Видео
+  const videos = [
+    { title: 'Видео 1 - Запись в студии', src: 'video1.mp4' },
+    { title: 'Видео 2 - Техника сведения', src: 'video2.mp4' },
+    { title: 'Видео 3 - Обработка эффектами', src: 'video3.mp4' },
+  ];
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const lectureContainer = document.querySelector('.audio-tracks');
+    lectures.forEach(lecture => {
+      const div = document.createElement('div');
+      div.className = 'audio-track';
+
+      const p = document.createElement('p');
+      p.textContent = lecture.title;
+
+      const audio = document.createElement('audio');
+      audio.controls = true;
+      audio.src = lecture.src;
+
+      div.appendChild(p);
+      div.appendChild(audio);
+      lectureContainer.appendChild(div);
+    });
+
+    const videoContainer = document.getElementById('videoContent');
+    videos.forEach(video => {
+      const div = document.createElement('div');
+      div.className = 'video-item';
+
+      const p = document.createElement('p');
+      p.textContent = video.title;
+
+      const v = document.createElement('video');
+      v.controls = true;
+      v.src = video.src;
+
+      div.appendChild(p);
+      div.appendChild(v);
+      videoContainer.appendChild(div);
+    });
+
+    // Изначально панели свернуты
+    const videoPanel = document.getElementById('videoPanel');
+    const audioPanel = document.getElementById('audioPanel');
+
+    // Установка начальных классов
+    videoPanel.classList.add('panel-collapsed');
+    audioPanel.classList.add('panel-collapsed');
+
+    // Обработчики для открытия/закрытия панелей
+    document.getElementById('videoHeader').addEventListener('click', () => {
+      const panel = document.getElementById('videoPanel');
+      const arrow = document.getElementById('videoArrow');
+      if (panel.classList.contains('panel-collapsed')) {
+        panel.classList.remove('panel-collapsed');
+        panel.classList.add('panel-expanded');
+        arrow.innerHTML = '▲';
+        arrow.classList.add('open');
+      } else {
+        panel.classList.remove('panel-expanded');
+        panel.classList.add('panel-collapsed');
+        arrow.innerHTML = '▼';
+        arrow.classList.remove('open');
+      }
+    });
+
+    document.getElementById('audioHeader').addEventListener('click', () => {
+      const panel = document.getElementById('audioPanel');
+      const arrow = document.getElementById('audioArrow');
+      if (panel.classList.contains('panel-collapsed')) {
+        panel.classList.remove('panel-collapsed');
+        panel.classList.add('panel-expanded');
+        arrow.innerHTML = '▲';
+        arrow.classList.add('open');
+      } else {
+        panel.classList.remove('panel-expanded');
+        panel.classList.add('panel-collapsed');
+        arrow.innerHTML = '▼';
+        arrow.classList.remove('open');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

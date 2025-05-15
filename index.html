@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <style>
+ 
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+   
+        .header {
+            display: flex; 
+            align-items: center; 
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #318e34;
+            color: #333; 
+            padding: 10px 20px;
+            z-index: 1000; 
+        }
+        .header-title {
+            margin-right: auto; 
+            font-size: 27px; 
+        }
+        .logo {
+            position: absolute; 
+            top: -6px; 
+            left: 675px; 
+            width: 180px;
+        }
+        .nav-buttons {
+            margin-left: auto; 
+        }
+        button {
+            padding: 5px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: black; 
+            color: white; 
+            border: none;
+            border-radius: 5px;
+            margin-left: 10px; 
+        }
+        button:hover {
+            background-color: #555;*/
+        }
+       
+        .side-bar {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            width: 20px; /* Ширина боковой полосы */
+            background-color: #4CAF50; /* Зелёный цвет */
+        }
+        .left {
+            left: 0; /* Слева */
+        }
+        .right {
+            right: 0; /* Справа */
+        }
+        /* Стили для изображения в колонке */
+        .image-column {
+            position: fixed; /* Фиксированное позиционирование для колонки с изображением */
+            top: 60%; /* Центрирование по вертикали */
+            transform: translateY(-50%); /* Сдвиг для вертикального центрирования */
+        }
+        .left-column {
+            left: 30px; /* Отступ от левого края */
+        }
+        .right-column {
+            right: 30px; /* Отступ от правого края */
+        }
+        .image-column img {
+            width: 250px; /* Ширина изображения */
+            height: auto; /* Автоматическая высота для сохранения пропорций */
+        }
+        /* Стили для текста */
+        .sub-header {
+            text-align: center; /* Центрировать текст */
+            margin-top: 70px; /* Отступ сверху после шапки */
+            font-size: 20px; /* Размер шрифта подзаголовка */
+            color: #333; /* Цвет текста */
+            font-style: italic; /* Наклонный текст */
+        }
+        /* Стили для примеров изображений */
+        .example-images {
+            display: flex;
+            justify-content: center; /* Center the images */
+            margin-top: 20px; /* Отступ сверху */
+        }
+        .example-images div {
+            margin: 0 35px; /* Horizontal margin between images */
+        }
+        .example-images img {
+            width: 330px; /* Width for Пример1 and Пример2 images */
+            height: auto; /* Responsive height */
+        }
+        /* Стили для модального окна */
+        .modal {
+            display: none; /* Скрыто по умолчанию */
+            position: fixed; 
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4); /* Прозрачный фон */
+            padding-top: 100px;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Ширина модального окна */
+            max-width: 500px; /* Максимальная ширина модального окна */
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        /* Стили для формы */
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button[type=submit] {
+            background-color: #4CAF50;
+            color: white;
+        }
+        button[type=button] {
+            background-color: #f44336;
+            color: white;
+        }
+        button:hover {
+            opacity: 0.9;
+        }
+
+        /* Зажим для контента страницы */
+        .content {
+            margin-top: 100px; /* Отступ сверху, чтобы не перекрывалась шапкой */
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка -->
+    <div class="header">
+        <h1 class="header-title">Онлайн-курсы звукорежиссуры</h1>
+        <img src="Логотип.png" alt="Логотип" class="logo"> <!-- Логотип в шапке -->
+        <div class="nav-buttons"> <!-- Обернем кнопки в div -->
+            <button id="registerBtn">РЕГИСТРАЦИЯ</button>
+            <button id="loginBtn">ВХОД</button> <!-- Добавлена кнопка ВХОД -->
+        </div>
+    </div>
+
+    <!-- Боковые полосы -->
+    <div class="side-bar left"></div>
+    <div class="side-bar right"></div>
+
+    <!-- Контент -->
+    <div class="content">
+        <!-- Подзаголовок -->
+        <div class="sub-header">
+            <p>Сводим звук, как в море корабли,</p>
+            <p>Не нарушая правил.</p>
+            <p>Волны звука, сквозь всё время и мечты,</p>
+            <p>Пробиваются, не оставаясь тайной. © Р. Пономарев</p>
+        </div>
+
+        <!-- Первая колонка с изображением -->
+        <div class="image-column left-column">
+            <img src="Колонка1.png" alt="Описание изображения">
+        </div>
+        
+        <!-- Вторая колонка с изображением -->
+        <div class="image-column right-column">
+            <img src="Колонка2.png" alt="Описание изображения">
+        </div>
+
+        <div class="example-images">
+            <div>
+                <img src="Пример1.jpeg" alt="Пример1">
+                <p>Обучение профессиональному аудио-мониторингу</p>
+            </div>
+            <div>
+                <img src="Пример2.jpeg" alt="Пример2">
+                <p>Обучение профессиональному сведению</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="registrationModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal" title="Закрыть">×</span>
+            <form id="registrationForm">
+                <h2>РЕГИСТРАЦИЯ</h2>
+                <label for="email"><b>Email</b></label>
+                <input type="text" placeholder="Введите Email" name="email" required>
+
+                <label for="psw"><b>Пароль</b></label>
+                <input type="password" placeholder="Введите пароль" name="psw" required>
+
+                <label for="psw-repeat"><b>Повторите пароль</b></label>
+                <input type="password" placeholder="Повторите пароль" name="psw-repeat" required>
+
+                <label>
+                    <input type="checkbox" checked="checked" name="remember"> Запомнить меня
+                </label>
+
+                <div class="clearfix">
+                    <button type="submit" class="signupbtn">Зарегистрироваться</button>
+                    <button type="button" id="cancelBtn" class="cancelbtn">Отменить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var modal = document.getElementById("registrationModal");
+            var registerBtn = document.getElementById("registerBtn");
+            var loginBtn = document.getElementById("loginBtn");
+            var closeModal = document.getElementById("closeModal");
+            var cancelBtn = document.getElementById("cancelBtn");
+            
+            // Открытие модального окна
+            registerBtn.onclick = function() {
+                modal.style.display = "block";
+            };
+
+            // Закрытие модального окна
+            closeModal.onclick = function() {
+                modal.style.display = "none";
+            };
+
+            // Закрыть модальное окно при нажатии кнопки "Отменить"
+            cancelBtn.onclick = function() {
+                modal.style.display = "none";
+            };
+
+            // Закрыть модальное окно при клике вне его
+            window.onclick = function(event) {
+                if (event.target === modal) {
+                    modal.style.display = "none";
+                }
+            };
+
+            // Обработка формы регистрации
+            document.getElementById("registrationForm").onsubmit = function(event) {
+                event.preventDefault(); // Не отправлять форму
+
+                var userName = this.email.value.split('@')[0]; // Получить имя пользователя из email
+                console.log("Форма успешно отправлена! Имя пользователя: " + userName); // Вывод в консоль
+
+                // Имитация успешной регистрации и перенаправление на другую страницу
+                alert("Регистрация прошла успешна! Добро пожаловать, " + userName + "!");
+                window.location.href = "index 2.html"; // Перенаправление на страницу "index (2)"
+            };
+
+            // Закрытие модального окна при клике на кнопку ВХОД (можно добавить логику)
+            loginBtn.onclick = function() {
+                // Здесь можно добавить логику, связанную с входом пользователя
+                alert("Функция ВХОД пока не реализована.");
+            };
+        });
+    </script>
+</body>
+</html>
