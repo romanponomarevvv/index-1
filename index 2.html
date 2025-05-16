@@ -21,22 +21,20 @@
     left: -70px; 
     width: 180px; 
   }
-  /* Сделать заголовок жирным и белым */
   header h1.header-title {
     color: white;
     font-weight: bold;
     margin: 0;
   }
-  /* Сделать ссылки навигации жирными и черными */
   nav a {
     margin: 0 10px; 
     text-decoration: none;
-    color: black; /* черный цвет */
-    font-weight: bold; /* жирный */
+    color: black;
+    font-weight: bold;
   }
-  /* при наведении оставить черным или добавить эффект */
   nav a:hover {
     text-decoration: underline;
+    cursor: pointer;
   }
 
   .container {
@@ -64,13 +62,12 @@
   .main-content {
     flex-grow: 1;
     padding: 20px;
-    margin-left: 250px; /* отступ под фиксированную панель */
+    margin-left: 250px;
   }
-  /* Общие стили для панелей */
   .panels-container {
     display: flex;
     flex-direction: column;
-    gap: 10px; /* отступ между панелями */
+    gap: 10px;
     width: 100%;
   }
   .collapsible-panel {
@@ -82,17 +79,14 @@
     display: flex;
     flex-direction: column;
   }
-  /* Начальные состояния: свернуты */
   .panel-collapsed {
     max-height: 40px;
     padding: 0;
   }
-  /* Раскрытая панель */
   .panel-expanded {
     max-height: 1500px;
     padding: 15px;
   }
-  /* Заголовки панелей */
   .panel-header {
     display: flex;
     justify-content: space-between;
@@ -108,15 +102,12 @@
     height: 20px;
     transition: transform 0.3s ease;
   }
-  /* Поворот стрелки при открытии */
   .arrow.open {
     transform: rotate(180deg);
   }
-  /* Контент внутри панели */
   .panel-content {
     overflow-y: auto;
   }
-  /* Видео */
   .video-item {
     margin-bottom: 10px;
   }
@@ -125,7 +116,6 @@
     height: auto;
     border-radius: 4px;
   }
-  /* Остальные стили */
   .audio-tracks {
     display: flex;
     flex-direction: column;
@@ -155,22 +145,8 @@
     text-align: center;
     z-index: 1000; 
   }
-  /* Центрируем и стилизуем навигацию */
   nav {
     margin: 10px 0; 
-  }
-  /* Сделать ссылки жирными и черными */
-  nav a {
-    margin: 0 10px; 
-    text-decoration: none;
-    color: black; /* черный */
-    font-weight: bold; /* жирный */
-  }
-  nav a:hover {
-    text-decoration: underline;
-  }
-  h1 {
-    margin: 0;
   }
   footer {
     text-align: center;
@@ -179,6 +155,163 @@
     color: white;
     margin-top: 20px;
   }
+  
+  /* Модальные окна */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .close:hover {
+    color: black;
+  }
+  
+  .course-option {
+    padding: 15px;
+    margin: 10px 0;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .course-option:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .course-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .course-description {
+    font-size: 0.9em;
+    color: #555;
+  }
+  
+  /* Стили для календаря */
+  .calendar {
+    width: 100%;
+    margin-top: 15px;
+  }
+  
+  .calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .calendar-title {
+    font-weight: bold;
+    font-size: 1.1em;
+  }
+  
+  .calendar-nav {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .calendar-nav button {
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    cursor: pointer;
+    padding: 0 5px;
+  }
+  
+  .calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+  }
+  
+  .calendar-day {
+    padding: 8px;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .calendar-day:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .calendar-day.today {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .calendar-day.selected {
+    background-color: #318e34;
+    color: white;
+  }
+  
+  .calendar-day.other-month {
+    color: #aaa;
+  }
+  
+  .calendar-day.disabled {
+    color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .confirm-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .confirm-btn:hover {
+    background-color: #318e34;
+  }
+  
+  .selected-course-info {
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+  }
 </style>
 </head>
 <body>
@@ -186,16 +319,69 @@
 <header>
   <div class="header-container">
     <img src="Логотип.png" alt="Логотип" class="logo" />
-    <!-- Сделать название жирным и белым -->
     <h1 class="header-title">Онлайн-курсы звукорежиссуры</h1>
     <nav>
-      <a href="#register">Выбрать курс</a>
+      <a id="selectCourseBtn">Выбрать курс</a>
       <a href="#about">О нас</a>
       <a href="#contacts">Контакты</a>
       <a href="#feedback">Отзывы и предложения</a>
     </nav>
   </div>
 </header>
+
+<!-- Модальное окно выбора курса -->
+<div id="courseModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Выберите курс</h2>
+    
+    <div class="course-option" id="contourCourse">
+      <div class="course-title">Концертная звукорежиссура</div>
+      <div class="course-description">Основы работы с концертными аудиосистемами</div>
+    </div>
+    
+    <div class="course-option" id="studioCourse">
+      <div class="course-title">Студийная звукорежиссура</div>
+      <div class="course-description">Профессиональные техники записи и сведения в студийных условиях</div>
+    </div>
+  </div>
+</div>
+
+<!-- Модальное окно выбора даты -->
+<div id="dateModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Выберите дату записи</h2>
+    
+    <div class="selected-course-info">
+      <strong>Выбранный курс:</strong> <span id="selectedCourseName"></span>
+    </div>
+    
+    <div class="calendar">
+      <div class="calendar-header">
+        <div class="calendar-title" id="calendarTitle">Май 2024</div>
+        <div class="calendar-nav">
+          <button id="prevMonth">&lt;</button>
+          <button id="nextMonth">&gt;</button>
+        </div>
+      </div>
+      
+      <div class="calendar-weekdays">
+        <div>Пн</div>
+        <div>Вт</div>
+        <div>Ср</div>
+        <div>Чт</div>
+        <div>Пт</div>
+        <div>Сб</div>
+        <div>Вс</div>
+      </div>
+      
+      <div class="calendar-days" id="calendarDays"></div>
+      
+      <button class="confirm-btn" id="confirmDate">Подтвердить запись</button>
+    </div>
+  </div>
+</div>
 
 <div class="container">
   <div class="side-bar">
@@ -215,9 +401,7 @@
       <img class="small-img" src="2 курс.jpeg" alt="Описание изображения" />
     </section>
 
-    <!-- Контейнер для панелей -->
     <div class="panels-container" style="margin-top: 20px;">
-      <!-- Видео -->
       <div class="collapsible-panel panel-collapsed" id="videoPanel">
         <div class="panel-header" id="videoHeader">
           <span>Видеофрагменты</span>
@@ -225,7 +409,6 @@
         </div>
         <div class="panel-content" id="videoContent"></div>
       </div>
-      <!-- Лекции -->
       <div class="collapsible-panel panel-collapsed" id="audioPanel">
         <div class="panel-header" id="audioHeader">
           <span>Фрагменты лекций</span>
@@ -242,7 +425,7 @@
 </div>
 
 <script>
-  // Данные лекций
+  // Данные лекций и видео
   const lectures = [
     { title: 'Лекция 1 - Введение', src: 'audio1.mp3' },
     { title: 'Лекция 2 - Техника записи', src: 'audio2.mp3' },
@@ -250,7 +433,6 @@
     { title: 'Лекция 4 - Техника сведения', src: 'audio4.mp3' },
   ];
 
-  // Видео
   const videos = [
     { title: 'Видео 1 - Запись в студии', src: 'video1.mp4' },
     { title: 'Видео 2 - Техника сведения', src: 'video2.mp4' },
@@ -258,6 +440,20 @@
   ];
 
   document.addEventListener('DOMContentLoaded', () => {
+    // Инициализация контента
+    initContent();
+    
+    // Инициализация панелей
+    initPanels();
+    
+    // Инициализация модальных окон
+    initModals();
+    
+    // Инициализация календаря
+    initCalendar();
+  });
+
+  function initContent() {
     const lectureContainer = document.querySelector('.audio-tracks');
     lectures.forEach(lecture => {
       const div = document.createElement('div');
@@ -291,16 +487,15 @@
       div.appendChild(v);
       videoContainer.appendChild(div);
     });
+  }
 
-    // Изначально панели свернуты
+  function initPanels() {
     const videoPanel = document.getElementById('videoPanel');
     const audioPanel = document.getElementById('audioPanel');
 
-    // Установка начальных классов
     videoPanel.classList.add('panel-collapsed');
     audioPanel.classList.add('panel-collapsed');
 
-    // Обработчики для открытия/закрытия панелей
     document.getElementById('videoHeader').addEventListener('click', () => {
       const panel = document.getElementById('videoPanel');
       const arrow = document.getElementById('videoArrow');
@@ -332,7 +527,176 @@
         arrow.classList.remove('open');
       }
     });
-  });
+  }
+
+  function initModals() {
+    const courseModal = document.getElementById("courseModal");
+    const dateModal = document.getElementById("dateModal");
+    const btn = document.getElementById("selectCourseBtn");
+    const closeButtons = document.getElementsByClassName("close");
+    const contourCourse = document.getElementById("contourCourse");
+    const studioCourse = document.getElementById("studioCourse");
+    const selectedCourseName = document.getElementById("selectedCourseName");
+
+    let selectedCourse = null;
+
+    // Открытие модального окна выбора курса
+    btn.onclick = function() {
+      courseModal.style.display = "block";
+    }
+
+    // Закрытие модальных окон
+    Array.from(closeButtons).forEach(button => {
+      button.onclick = function() {
+        courseModal.style.display = "none";
+        dateModal.style.display = "none";
+      }
+    });
+
+    // Закрытие при клике вне окна
+    window.onclick = function(event) {
+      if (event.target == courseModal) {
+        courseModal.style.display = "none";
+      }
+      if (event.target == dateModal) {
+        dateModal.style.display = "none";
+      }
+    }
+
+    // Обработчики выбора курса
+    contourCourse.onclick = function() {
+      selectedCourse = "Концертная звукорежиссура";
+      selectedCourseName.textContent = selectedCourse;
+      courseModal.style.display = "none";
+      dateModal.style.display = "block";
+      updateCalendar(); // Обновляем календарь при открытии
+    }
+
+    studioCourse.onclick = function() {
+      selectedCourse = "Студийная звукорежиссура";
+      selectedCourseName.textContent = selectedCourse;
+      courseModal.style.display = "none";
+      dateModal.style.display = "block";
+      updateCalendar(); // Обновляем календарь при открытии
+    }
+
+    // Подтверждение выбора даты
+    document.getElementById("confirmDate").onclick = function() {
+      if (selectedDate) {
+        const formattedDate = selectedDate.toLocaleDateString('ru-RU', {
+          day: 'numeric',
+          month: 'long',
+          year: 'numeric'
+        });
+        alert(`Вы записаны на курс "${selectedCourse}" на ${formattedDate}`);
+        dateModal.style.display = "none";
+      } else {
+        alert("Пожалуйста, выберите дату");
+      }
+    }
+  }
+
+  // Календарь
+  let currentMonth = new Date().getMonth();
+  let currentYear = new Date().getFullYear();
+  let selectedDate = null;
+
+  function initCalendar() {
+    document.getElementById("prevMonth").addEventListener("click", () => {
+      currentMonth--;
+      if (currentMonth < 0) {
+        currentMonth = 11;
+        currentYear--;
+      }
+      updateCalendar();
+    });
+
+    document.getElementById("nextMonth").addEventListener("click", () => {
+      currentMonth++;
+      if (currentMonth > 11) {
+        currentMonth = 0;
+        currentYear++;
+      }
+      updateCalendar();
+    });
+
+    updateCalendar();
+  }
+
+  function updateCalendar() {
+    const calendarTitle = document.getElementById("calendarTitle");
+    const calendarDays = document.getElementById("calendarDays");
+    
+    // Установка названия месяца и года
+    const monthNames = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", 
+                       "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
+    calendarTitle.textContent = `${monthNames[currentMonth]} ${currentYear}`;
+    
+    // Очищаем календарь
+    calendarDays.innerHTML = '';
+    
+    // Получаем первый день месяца и день недели
+    const firstDay = new Date(currentYear, currentMonth, 1);
+    const startingDay = firstDay.getDay() === 0 ? 6 : firstDay.getDay() - 1; // Пн=0, Вс=6
+    
+    // Получаем количество дней в месяце
+    const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+    
+    // Получаем количество дней в предыдущем месяце
+    const daysInLastMonth = new Date(currentYear, currentMonth, 0).getDate();
+    
+    // Добавляем дни из предыдущего месяца
+    for (let i = 0; i < startingDay; i++) {
+      const dayElement = document.createElement("div");
+      dayElement.className = "calendar-day other-month";
+      dayElement.textContent = daysInLastMonth - startingDay + i + 1;
+      calendarDays.appendChild(dayElement);
+    }
+    
+    // Добавляем дни текущего месяца
+    const today = new Date();
+    for (let i = 1; i <= daysInMonth; i++) {
+      const dayElement = document.createElement("div");
+      dayElement.className = "calendar-day";
+      dayElement.textContent = i;
+      
+      // Проверяем, является ли день сегодняшним
+      if (i === today.getDate() && currentMonth === today.getMonth() && currentYear === today.getFullYear()) {
+        dayElement.classList.add("today");
+      }
+      
+      // Проверяем, является ли день выбранным
+      if (selectedDate && i === selectedDate.getDate() && currentMonth === selectedDate.getMonth() && currentYear === selectedDate.getFullYear()) {
+        dayElement.classList.add("selected");
+      }
+      
+      // Отключаем прошедшие дни
+      const date = new Date(currentYear, currentMonth, i);
+      if (date < today) {
+        dayElement.classList.add("disabled");
+      } else {
+        dayElement.addEventListener("click", () => selectDate(i));
+      }
+      
+      calendarDays.appendChild(dayElement);
+    }
+    
+    // Добавляем дни следующего месяца
+    const totalCells = startingDay + daysInMonth;
+    const remainingCells = totalCells > 35 ? 42 - totalCells : 35 - totalCells;
+    
+    for (let i = 1; i <= remainingCells; i++) {
+      const dayElement = document.createElement("div");
+      dayElement.className = "calendar-day other-month";
+      dayElement.textContent = i;
+      calendarDays.appendChild(dayElement);
+    }
+  }
+  
+  function selectDate(day) {
+    selectedDate = new Date(currentYear, currentMonth, day);
+    updateCalendar();
+  }
 </script>
 
 </body>
